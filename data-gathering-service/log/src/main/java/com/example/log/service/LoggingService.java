@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Service
@@ -22,6 +23,11 @@ public class LoggingService {
     private String getCurrentLogFileName() {
         LocalDate today = LocalDate.now();
         return logLocation + today.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + logSuffix;
+    }
+
+    private String queryWithTimestamp(String query) {
+        LocalDateTime now = LocalDateTime.now();
+
     }
 
     public void logQuery(String query) {
